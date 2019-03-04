@@ -5,10 +5,65 @@
     xmlns:local="using:Niti_Pune_Water"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="using:Syncfusion.UI.Xaml.Maps"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="white">
 
-    <Grid>
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
+        <Button Click="Button_Click" HorizontalAlignment="Stretch" Foreground="Black" VerticalAlignment="Stretch" Content="Click To Refresh" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.6*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Stats" TextAlignment="Start" Foreground="Black" VerticalAlignment="Center" Margin="5" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Text="Wallet Balance:" TextAlignment="Start" Foreground="Black" VerticalAlignment="Center" Margin="10" FontWeight="Medium"/>
+                <TextBlock x:Name="totalCoinBlock" TextAlignment="Start" Foreground="Black" VerticalAlignment="Center" Margin="10" FontWeight="Medium"/>
+            </StackPanel>
+            <TextBlock Text="September 2018" TextAlignment="Start" VerticalAlignment="Center" Foreground="Black" Grid.Row="2" FontWeight="Bold" Margin="10"/>
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Avg Temp" TextAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="5"/>
+                <TextBlock Text="Total Coins" TextAlignment="Center" VerticalAlignment="Center"  Foreground="Black" Margin="5" Grid.Column="1"/>
+                <TextBlock x:Name="tempBlock" TextAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="5" Grid.Row="1" FontWeight="SemiBold"/>
+                <TextBlock x:Name="coinsBlock" TextAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="5" Grid.Column="1" FontWeight="SemiBold" Grid.Row="1"/>
+            </Grid>
 
+            <ListView x:Name="listView" Grid.Row="4">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="#F8F8F8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="500">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.33*"/>
+                                <ColumnDefinition Width="0.33*"/>
+                                <ColumnDefinition Width="0.33*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="CoinLabel" Text="{Binding Coins}" Foreground="Black"  Margin="3" Grid.ColumnSpan="3" FontWeight="Bold"/>
+                            <TextBlock x:Name="TimeLabel" Text="{Binding Time}" Foreground="Black"  Grid.Row="1" Margin="3"/>
+                            <TextBlock x:Name="TempLabel" Text="{Binding Temp}" Foreground="Black" Grid.Row="1" Grid.Column="2" Margin="3"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>

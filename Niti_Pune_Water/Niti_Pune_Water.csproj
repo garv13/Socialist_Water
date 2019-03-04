@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataTempClass.cs" />
+    <Compile Include="logs.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <EmbeddedResource Include="Assets\Pune_AL5-AL5.dbf" />
+    <EmbeddedResource Include="Assets\Pune_AL5-AL5.shp" />
+    <EmbeddedResource Include="Assets\world1.dbf" />
+    <EmbeddedResource Include="Assets\world1.shp" />
     <None Include="Niti_Pune_Water_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -127,8 +134,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Mobile.Client">
+      <Version>4.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.7</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.SfMaps.UWP">
+      <Version>16.3.0.21</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
